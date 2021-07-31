@@ -1,0 +1,12 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/Domain/LojaVirtual.Domain/bin/Debug/net5.0
+/Domain/LojaVirtual.Domain/obj
+/Domain/LojaVirtual.Domain.Services/obj
+/Infra/LojaVirtual.Infra.CrossCutting/obj
+/Test/LojaVirtual.Test/obj
+/Test/LojaVirtual.Test/LojaVirtual.Test.csproj
+/Infra/LojaVirtual.Infra.Data/obj
+/UI/LojaVirtual.UI.MVC/obj
