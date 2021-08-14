@@ -5,23 +5,23 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B88F26A1-2317-45A0-AA67-A6FE0C8ECA45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.Domain", "Domain\LojaVirtual.Domain\LojaVirtual.Domain.csproj", "{3ED7E797-194B-413B-ADBA-36E64E0CA88F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojaVirtual.Domain", "Domain\LojaVirtual.Domain\LojaVirtual.Domain.csproj", "{3ED7E797-194B-413B-ADBA-36E64E0CA88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.Domain.Services", "Domain\LojaVirtual.Domain.Services\LojaVirtual.Domain.Services.csproj", "{6AFC24F2-2D55-41B3-BA54-5E97766392F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojaVirtual.Domain.Services", "Domain\LojaVirtual.Domain.Services\LojaVirtual.Domain.Services.csproj", "{6AFC24F2-2D55-41B3-BA54-5E97766392F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{09B440D6-1D77-4FF6-80CF-8192F6B65F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.Infra.Data", "Infra\LojaVirtual.Infra.Data\LojaVirtual.Infra.Data.csproj", "{F06C6D9F-634C-43DF-88AA-81E0FAFD3294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojaVirtual.Infra.Data", "Infra\LojaVirtual.Infra.Data\LojaVirtual.Infra.Data.csproj", "{F06C6D9F-634C-43DF-88AA-81E0FAFD3294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.Infra.CrossCutting", "Infra\LojaVirtual.Infra.CrossCutting\LojaVirtual.Infra.CrossCutting.csproj", "{11F2C035-5EAC-4EB1-B8E8-7890E8C7774E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojaVirtual.Infra.CrossCutting", "Infra\LojaVirtual.Infra.CrossCutting\LojaVirtual.Infra.CrossCutting.csproj", "{11F2C035-5EAC-4EB1-B8E8-7890E8C7774E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{491BAA1D-938D-45B5-83E8-E5006274E9EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.Test", "Test\LojaVirtual.Test\LojaVirtual.Test.csproj", "{0B36D066-106E-439B-AF31-208C0420545C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{355513AB-4D35-4D80-A814-91EF894859FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.UI.MVC", "UI\LojaVirtual.UI.MVC\LojaVirtual.UI.MVC.csproj", "{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LojaVirtual.UI.MVC", "UI\LojaVirtual.UI.MVC\LojaVirtual.UI.MVC.csproj", "{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtualTest", "Test\LojaVirtualTest\LojaVirtualTest.csproj", "{E0DE7F46-A869-4E17-BBAE-9933349618DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,9 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3ED7E797-194B-413B-ADBA-36E64E0CA88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -84,18 +81,6 @@ Global
 		{11F2C035-5EAC-4EB1-B8E8-7890E8C7774E}.Release|x64.Build.0 = Release|Any CPU
 		{11F2C035-5EAC-4EB1-B8E8-7890E8C7774E}.Release|x86.ActiveCfg = Release|Any CPU
 		{11F2C035-5EAC-4EB1-B8E8-7890E8C7774E}.Release|x86.Build.0 = Release|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Debug|x64.Build.0 = Debug|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Debug|x86.Build.0 = Debug|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Release|x64.ActiveCfg = Release|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Release|x64.Build.0 = Release|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Release|x86.ActiveCfg = Release|Any CPU
-		{0B36D066-106E-439B-AF31-208C0420545C}.Release|x86.Build.0 = Release|Any CPU
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -108,13 +93,31 @@ Global
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}.Release|x64.Build.0 = Release|Any CPU
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}.Release|x86.ActiveCfg = Release|Any CPU
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE}.Release|x86.Build.0 = Release|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Release|x64.Build.0 = Release|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3ED7E797-194B-413B-ADBA-36E64E0CA88F} = {B88F26A1-2317-45A0-AA67-A6FE0C8ECA45}
 		{6AFC24F2-2D55-41B3-BA54-5E97766392F2} = {B88F26A1-2317-45A0-AA67-A6FE0C8ECA45}
 		{F06C6D9F-634C-43DF-88AA-81E0FAFD3294} = {09B440D6-1D77-4FF6-80CF-8192F6B65F29}
 		{11F2C035-5EAC-4EB1-B8E8-7890E8C7774E} = {09B440D6-1D77-4FF6-80CF-8192F6B65F29}
-		{0B36D066-106E-439B-AF31-208C0420545C} = {491BAA1D-938D-45B5-83E8-E5006274E9EC}
 		{E038E5E9-ED1C-4F09-B46B-BA425F519DFE} = {355513AB-4D35-4D80-A814-91EF894859FE}
+		{E0DE7F46-A869-4E17-BBAE-9933349618DA} = {491BAA1D-938D-45B5-83E8-E5006274E9EC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD51B052-7C2C-44FC-A3A2-2049BEFC120E}
 	EndGlobalSection
 EndGlobal
