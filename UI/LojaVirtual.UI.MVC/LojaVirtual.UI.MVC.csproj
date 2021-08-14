@@ -14,4 +14,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\LojaVirtual.Domain.Services\LojaVirtual.Domain.Services.csproj" />
+    <ProjectReference Include="..\..\Domain\LojaVirtual.Domain\LojaVirtual.Domain.csproj" />
+    <ProjectReference Include="..\..\Infra\LojaVirtual.Infra.Data\LojaVirtual.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>

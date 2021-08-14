@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infra\LojaVirtual.Infra.Data\LojaVirtual.Infra.Data.csproj" />
+    <ProjectReference Include="..\LojaVirtual.Domain\LojaVirtual.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
