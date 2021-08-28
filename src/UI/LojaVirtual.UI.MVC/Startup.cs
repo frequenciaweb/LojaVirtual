@@ -38,6 +38,8 @@ namespace LojaVirtual.UI.MVC
             services.AddTransient<IRepositorieCategoria, RepositorieCategoria>();
             services.AddTransient<IServiceCategoria, ServiceCategoria>();
 
+            services.AddTransient<IRepositorieFoto, RepositorieFoto>();            
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
