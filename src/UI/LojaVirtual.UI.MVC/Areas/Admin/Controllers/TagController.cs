@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class ClienteController : Controller
+    public class TagController : Controller
     {
-        private IServiceCliente ServiceCliente { get; set; }
-        private IRepositorieCliente RepositorieCliente { get; set; }
+        private IServiceTag ServiceTag { get; set; }
+        private IRepositorieTag RepositorieTag { get; set; }
  
-        public ClienteController(IServiceCliente serviceCliente, IRepositorieCliente repositorieCliente)
+        public TagController(IServiceTag serviceTag, IRepositorieTag repositorieTag)
         {
-            ServiceCliente = serviceCliente;
-            RepositorieCliente = repositorieCliente;
+            ServiceTag = serviceTag;
+            RepositorieTag = repositorieTag;
         }
  
-        // GET: Clientes
+        // GET: Tags
         public IActionResult Index()
         {
-            return View(RepositorieCliente.Obter());
+            return View(RepositorieTag.Obter());
         }
  
         [HttpPost]
@@ -32,13 +32,13 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (string.IsNullOrEmpty(form["tipoPesquisa[]"]) || string.IsNullOrEmpty(form["valor[]"]))
             {
                 ViewBag.Erro = "Selecione os tipos de pesquisa e informe os valores";
-                return View(new List<Cliente>());
+                return View(new List<Tag>());
             }
             
-            return View(RepositorieCliente.Obter());
+            return View(RepositorieTag.Obter());
         }
  
-        // GET: Clientes/Details/5
+        // GET: Tags/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -46,37 +46,37 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Cliente Cliente = RepositorieCliente.Obter((Guid)id);
-            if (Cliente == null)
+            Tag Tag = RepositorieTag.Obter((Guid)id);
+            if (Tag == null)
             {
                 return NotFound();
             }
  
-            return View(Cliente);
+            return View(Tag);
         }
 
-        // GET: Clientes/Create
+        // GET: Tags/Create
         public IActionResult Create()
         {
             return View();
         }
  
-        // POST: Clientes/Create
+        // POST: Tags/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Cliente Cliente)
+        public IActionResult Create(Tag Tag)
         {
             if (ModelState.IsValid)
             {
-                ServiceCliente.Incluir(Cliente);
+                ServiceTag.Incluir(Tag);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Cliente);
+            return View(Tag);
         }
  
-        // GET: Clientes/Edit/5
+        // GET: Tags/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -84,23 +84,23 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Cliente Cliente = RepositorieCliente.Obter((Guid)id);
+            Tag Tag = RepositorieTag.Obter((Guid)id);
  
-            if (Cliente == null)
+            if (Tag == null)
             {
                 return NotFound();
             }
-            return View(Cliente);
+            return View(Tag);
         }
  
-        // POST: Clientes/Edit/5
+        // POST: Tags/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, Cliente Cliente)
+        public IActionResult Edit(Guid id, Tag Tag)
         {
-            if (id != Cliente.ID)
+            if (id != Tag.ID)
             {
                 return NotFound();
             }
@@ -109,11 +109,11 @@ namespace LojaVirtual.UI.MVC.Controllers
             {
                 try
                 {
-                    ServiceCliente.Alterar(Cliente);
+                    ServiceTag.Alterar(Tag);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(Cliente.ID))
+                    if (!TagExists(Tag.ID))
                     {
                         return NotFound();
                     }
@@ -124,10 +124,10 @@ namespace LojaVirtual.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Cliente);
+            return View(Tag);
         }
  
-        // GET: Clientes/Delete/5
+        // GET: Tags/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Cliente Cliente = RepositorieCliente.Obter((Guid)id);
-            if (Cliente == null)
+            Tag Tag = RepositorieTag.Obter((Guid)id);
+            if (Tag == null)
             {
                 return NotFound();
             }
  
-            return View(Cliente);
+            return View(Tag);
         }
  
-        // POST: Clientes/Delete/5
+        // POST: Tags/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            var Cliente = RepositorieCliente.Obter(id);
-            if (Cliente == null)
+            var Tag = RepositorieTag.Obter(id);
+            if (Tag == null)
             {
                 return NotFound();
             }
-            ServiceCliente.Excluir(Cliente);
+            ServiceTag.Excluir(Tag);
             return RedirectToAction(nameof(Index));
         }
  
-        private bool ClienteExists(Guid id)
+        private bool TagExists(Guid id)
         {
-            return RepositorieCliente.Obter(id) != null;
+            return RepositorieTag.Obter(id) != null;
         }
     }
 }

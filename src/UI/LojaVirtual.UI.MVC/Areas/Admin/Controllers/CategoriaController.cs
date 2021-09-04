@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class DescontoController : Controller
+    public class CategoriaController : Controller
     {
-        private IServiceDesconto ServiceDesconto { get; set; }
-        private IRepositorieDesconto RepositorieDesconto { get; set; }
+        private IServiceCategoria ServiceCategoria { get; set; }
+        private IRepositorieCategoria RepositorieCategoria { get; set; }
  
-        public DescontoController(IServiceDesconto serviceDesconto, IRepositorieDesconto repositorieDesconto)
+        public CategoriaController(IServiceCategoria serviceCategoria, IRepositorieCategoria repositorieCategoria)
         {
-            ServiceDesconto = serviceDesconto;
-            RepositorieDesconto = repositorieDesconto;
+            ServiceCategoria = serviceCategoria;
+            RepositorieCategoria = repositorieCategoria;
         }
  
-        // GET: Descontos
+        // GET: Categorias
         public IActionResult Index()
         {
-            return View(RepositorieDesconto.Obter());
+            return View(RepositorieCategoria.Obter());
         }
  
         [HttpPost]
@@ -32,13 +32,13 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (string.IsNullOrEmpty(form["tipoPesquisa[]"]) || string.IsNullOrEmpty(form["valor[]"]))
             {
                 ViewBag.Erro = "Selecione os tipos de pesquisa e informe os valores";
-                return View(new List<Desconto>());
+                return View(new List<Categoria>());
             }
             
-            return View(RepositorieDesconto.Obter());
+            return View(RepositorieCategoria.Obter());
         }
  
-        // GET: Descontos/Details/5
+        // GET: Categorias/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -46,37 +46,37 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Desconto Desconto = RepositorieDesconto.Obter((Guid)id);
-            if (Desconto == null)
+            Categoria Categoria = RepositorieCategoria.Obter((Guid)id);
+            if (Categoria == null)
             {
                 return NotFound();
             }
  
-            return View(Desconto);
+            return View(Categoria);
         }
 
-        // GET: Descontos/Create
+        // GET: Categorias/Create
         public IActionResult Create()
         {
             return View();
         }
  
-        // POST: Descontos/Create
+        // POST: Categorias/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Desconto Desconto)
+        public IActionResult Create(Categoria Categoria)
         {
             if (ModelState.IsValid)
             {
-                ServiceDesconto.Incluir(Desconto);
+                ServiceCategoria.Incluir(Categoria);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Desconto);
+            return View(Categoria);
         }
  
-        // GET: Descontos/Edit/5
+        // GET: Categorias/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -84,23 +84,23 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Desconto Desconto = RepositorieDesconto.Obter((Guid)id);
+            Categoria Categoria = RepositorieCategoria.Obter((Guid)id);
  
-            if (Desconto == null)
+            if (Categoria == null)
             {
                 return NotFound();
             }
-            return View(Desconto);
+            return View(Categoria);
         }
  
-        // POST: Descontos/Edit/5
+        // POST: Categorias/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, Desconto Desconto)
+        public IActionResult Edit(Guid id, Categoria Categoria)
         {
-            if (id != Desconto.ID)
+            if (id != Categoria.ID)
             {
                 return NotFound();
             }
@@ -109,11 +109,11 @@ namespace LojaVirtual.UI.MVC.Controllers
             {
                 try
                 {
-                    ServiceDesconto.Alterar(Desconto);
+                    ServiceCategoria.Alterar(Categoria);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DescontoExists(Desconto.ID))
+                    if (!CategoriaExists(Categoria.ID))
                     {
                         return NotFound();
                     }
@@ -124,10 +124,10 @@ namespace LojaVirtual.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Desconto);
+            return View(Categoria);
         }
  
-        // GET: Descontos/Delete/5
+        // GET: Categorias/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Desconto Desconto = RepositorieDesconto.Obter((Guid)id);
-            if (Desconto == null)
+            Categoria Categoria = RepositorieCategoria.Obter((Guid)id);
+            if (Categoria == null)
             {
                 return NotFound();
             }
  
-            return View(Desconto);
+            return View(Categoria);
         }
  
-        // POST: Descontos/Delete/5
+        // POST: Categorias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            var Desconto = RepositorieDesconto.Obter(id);
-            if (Desconto == null)
+            var Categoria = RepositorieCategoria.Obter(id);
+            if (Categoria == null)
             {
                 return NotFound();
             }
-            ServiceDesconto.Excluir(Desconto);
+            ServiceCategoria.Excluir(Categoria);
             return RedirectToAction(nameof(Index));
         }
  
-        private bool DescontoExists(Guid id)
+        private bool CategoriaExists(Guid id)
         {
-            return RepositorieDesconto.Obter(id) != null;
+            return RepositorieCategoria.Obter(id) != null;
         }
     }
 }

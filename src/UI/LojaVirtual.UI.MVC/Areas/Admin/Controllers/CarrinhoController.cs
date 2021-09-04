@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class CupomController : Controller
+    public class CarrinhoController : Controller
     {
-        private IServiceCupom ServiceCupom { get; set; }
-        private IRepositorieCupom RepositorieCupom { get; set; }
+        private IServiceCarrinho ServiceCarrinho { get; set; }
+        private IRepositorieCarrinho RepositorieCarrinho { get; set; }
  
-        public CupomController(IServiceCupom serviceCupom, IRepositorieCupom repositorieCupom)
+        public CarrinhoController(IServiceCarrinho serviceCarrinho, IRepositorieCarrinho repositorieCarrinho)
         {
-            ServiceCupom = serviceCupom;
-            RepositorieCupom = repositorieCupom;
+            ServiceCarrinho = serviceCarrinho;
+            RepositorieCarrinho = repositorieCarrinho;
         }
  
-        // GET: Cupoms
+        // GET: Carrinhos
         public IActionResult Index()
         {
-            return View(RepositorieCupom.Obter());
+            return View(RepositorieCarrinho.Obter());
         }
  
         [HttpPost]
@@ -32,13 +32,13 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (string.IsNullOrEmpty(form["tipoPesquisa[]"]) || string.IsNullOrEmpty(form["valor[]"]))
             {
                 ViewBag.Erro = "Selecione os tipos de pesquisa e informe os valores";
-                return View(new List<Cupom>());
+                return View(new List<Carrinho>());
             }
             
-            return View(RepositorieCupom.Obter());
+            return View(RepositorieCarrinho.Obter());
         }
  
-        // GET: Cupoms/Details/5
+        // GET: Carrinhos/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -46,37 +46,37 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Cupom Cupom = RepositorieCupom.Obter((Guid)id);
-            if (Cupom == null)
+            Carrinho Carrinho = RepositorieCarrinho.Obter((Guid)id);
+            if (Carrinho == null)
             {
                 return NotFound();
             }
  
-            return View(Cupom);
+            return View(Carrinho);
         }
 
-        // GET: Cupoms/Create
+        // GET: Carrinhos/Create
         public IActionResult Create()
         {
             return View();
         }
  
-        // POST: Cupoms/Create
+        // POST: Carrinhos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Cupom Cupom)
+        public IActionResult Create(Carrinho Carrinho)
         {
             if (ModelState.IsValid)
             {
-                ServiceCupom.Incluir(Cupom);
+                ServiceCarrinho.Incluir(Carrinho);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Cupom);
+            return View(Carrinho);
         }
  
-        // GET: Cupoms/Edit/5
+        // GET: Carrinhos/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -84,23 +84,23 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Cupom Cupom = RepositorieCupom.Obter((Guid)id);
+            Carrinho Carrinho = RepositorieCarrinho.Obter((Guid)id);
  
-            if (Cupom == null)
+            if (Carrinho == null)
             {
                 return NotFound();
             }
-            return View(Cupom);
+            return View(Carrinho);
         }
  
-        // POST: Cupoms/Edit/5
+        // POST: Carrinhos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, Cupom Cupom)
+        public IActionResult Edit(Guid id, Carrinho Carrinho)
         {
-            if (id != Cupom.ID)
+            if (id != Carrinho.ID)
             {
                 return NotFound();
             }
@@ -109,11 +109,11 @@ namespace LojaVirtual.UI.MVC.Controllers
             {
                 try
                 {
-                    ServiceCupom.Alterar(Cupom);
+                    ServiceCarrinho.Alterar(Carrinho);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CupomExists(Cupom.ID))
+                    if (!CarrinhoExists(Carrinho.ID))
                     {
                         return NotFound();
                     }
@@ -124,10 +124,10 @@ namespace LojaVirtual.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Cupom);
+            return View(Carrinho);
         }
  
-        // GET: Cupoms/Delete/5
+        // GET: Carrinhos/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Cupom Cupom = RepositorieCupom.Obter((Guid)id);
-            if (Cupom == null)
+            Carrinho Carrinho = RepositorieCarrinho.Obter((Guid)id);
+            if (Carrinho == null)
             {
                 return NotFound();
             }
  
-            return View(Cupom);
+            return View(Carrinho);
         }
  
-        // POST: Cupoms/Delete/5
+        // POST: Carrinhos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            var Cupom = RepositorieCupom.Obter(id);
-            if (Cupom == null)
+            var Carrinho = RepositorieCarrinho.Obter(id);
+            if (Carrinho == null)
             {
                 return NotFound();
             }
-            ServiceCupom.Excluir(Cupom);
+            ServiceCarrinho.Excluir(Carrinho);
             return RedirectToAction(nameof(Index));
         }
  
-        private bool CupomExists(Guid id)
+        private bool CarrinhoExists(Guid id)
         {
-            return RepositorieCupom.Obter(id) != null;
+            return RepositorieCarrinho.Obter(id) != null;
         }
     }
 }

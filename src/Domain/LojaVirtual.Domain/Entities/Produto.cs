@@ -5,13 +5,16 @@ namespace LojaVirtual.Domain.Entities
 {
     public class Produto
     {
-        public Guid ID { get; set; }
+        public Guid ID { get; set; } = Guid.NewGuid();
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
         public decimal Valor { get; set; }
         
         public string Marca { get; set; }
+
+        public DateTime Incluido { get; set; } = DateTime.Now;
+        public DateTime Atualizado { get; set; } = DateTime.Now;
 
         public Guid CategoriaID { get; set; }
         public Categoria Categoria {get; set;}

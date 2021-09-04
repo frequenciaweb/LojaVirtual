@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class CarrinhoController : Controller
+    public class UsuarioController : Controller
     {
-        private IServiceCarrinho ServiceCarrinho { get; set; }
-        private IRepositorieCarrinho RepositorieCarrinho { get; set; }
+        private IServiceUsuario ServiceUsuario { get; set; }
+        private IRepositorieUsuario RepositorieUsuario { get; set; }
  
-        public CarrinhoController(IServiceCarrinho serviceCarrinho, IRepositorieCarrinho repositorieCarrinho)
+        public UsuarioController(IServiceUsuario serviceUsuario, IRepositorieUsuario repositorieUsuario)
         {
-            ServiceCarrinho = serviceCarrinho;
-            RepositorieCarrinho = repositorieCarrinho;
+            ServiceUsuario = serviceUsuario;
+            RepositorieUsuario = repositorieUsuario;
         }
  
-        // GET: Carrinhos
+        // GET: Usuarios
         public IActionResult Index()
         {
-            return View(RepositorieCarrinho.Obter());
+            return View(RepositorieUsuario.Obter());
         }
  
         [HttpPost]
@@ -32,13 +32,13 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (string.IsNullOrEmpty(form["tipoPesquisa[]"]) || string.IsNullOrEmpty(form["valor[]"]))
             {
                 ViewBag.Erro = "Selecione os tipos de pesquisa e informe os valores";
-                return View(new List<Carrinho>());
+                return View(new List<Usuario>());
             }
             
-            return View(RepositorieCarrinho.Obter());
+            return View(RepositorieUsuario.Obter());
         }
  
-        // GET: Carrinhos/Details/5
+        // GET: Usuarios/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -46,37 +46,37 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Carrinho Carrinho = RepositorieCarrinho.Obter((Guid)id);
-            if (Carrinho == null)
+            Usuario Usuario = RepositorieUsuario.Obter((Guid)id);
+            if (Usuario == null)
             {
                 return NotFound();
             }
  
-            return View(Carrinho);
+            return View(Usuario);
         }
 
-        // GET: Carrinhos/Create
+        // GET: Usuarios/Create
         public IActionResult Create()
         {
             return View();
         }
  
-        // POST: Carrinhos/Create
+        // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Carrinho Carrinho)
+        public IActionResult Create(Usuario Usuario)
         {
             if (ModelState.IsValid)
             {
-                ServiceCarrinho.Incluir(Carrinho);
+                ServiceUsuario.Incluir(Usuario);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Carrinho);
+            return View(Usuario);
         }
  
-        // GET: Carrinhos/Edit/5
+        // GET: Usuarios/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -84,23 +84,23 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Carrinho Carrinho = RepositorieCarrinho.Obter((Guid)id);
+            Usuario Usuario = RepositorieUsuario.Obter((Guid)id);
  
-            if (Carrinho == null)
+            if (Usuario == null)
             {
                 return NotFound();
             }
-            return View(Carrinho);
+            return View(Usuario);
         }
  
-        // POST: Carrinhos/Edit/5
+        // POST: Usuarios/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, Carrinho Carrinho)
+        public IActionResult Edit(Guid id, Usuario Usuario)
         {
-            if (id != Carrinho.ID)
+            if (id != Usuario.ID)
             {
                 return NotFound();
             }
@@ -109,11 +109,11 @@ namespace LojaVirtual.UI.MVC.Controllers
             {
                 try
                 {
-                    ServiceCarrinho.Alterar(Carrinho);
+                    ServiceUsuario.Alterar(Usuario);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CarrinhoExists(Carrinho.ID))
+                    if (!UsuarioExists(Usuario.ID))
                     {
                         return NotFound();
                     }
@@ -124,10 +124,10 @@ namespace LojaVirtual.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Carrinho);
+            return View(Usuario);
         }
  
-        // GET: Carrinhos/Delete/5
+        // GET: Usuarios/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Carrinho Carrinho = RepositorieCarrinho.Obter((Guid)id);
-            if (Carrinho == null)
+            Usuario Usuario = RepositorieUsuario.Obter((Guid)id);
+            if (Usuario == null)
             {
                 return NotFound();
             }
  
-            return View(Carrinho);
+            return View(Usuario);
         }
  
-        // POST: Carrinhos/Delete/5
+        // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            var Carrinho = RepositorieCarrinho.Obter(id);
-            if (Carrinho == null)
+            var Usuario = RepositorieUsuario.Obter(id);
+            if (Usuario == null)
             {
                 return NotFound();
             }
-            ServiceCarrinho.Excluir(Carrinho);
+            ServiceUsuario.Excluir(Usuario);
             return RedirectToAction(nameof(Index));
         }
  
-        private bool CarrinhoExists(Guid id)
+        private bool UsuarioExists(Guid id)
         {
-            return RepositorieCarrinho.Obter(id) != null;
+            return RepositorieUsuario.Obter(id) != null;
         }
     }
 }

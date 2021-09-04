@@ -22,4 +22,9 @@
     <ProjectReference Include="..\..\Infra\LojaVirtual.Infra.Data\LojaVirtual.Infra.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
 </Project>

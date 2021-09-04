@@ -1,25 +1,40 @@
-﻿using System;
+﻿using LojaVirtual.Domain.Contracts.Repositories;
+using LojaVirtual.UI.MVC.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using LojaVirtual.UI.MVC.Models;
+
 
 namespace LojaVirtual.UI.MVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IRepositorieProduto _repositorieProdutos;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IRepositorieProduto repositorieProdutos)
         {
             _logger = logger;
+            _repositorieProdutos = repositorieProdutos;
         }
 
         public IActionResult Index()
         {
+                List<VMUltimosProdutos> ultimosProdutos = _repositorieProdutos?.ObterUltimosProdutos()?
+                .Select(produto => new VMUltimosProdutos 
+                { 
+                    ID = produto.ID,
+                    Titulo = produto.Nome,
+                    ValorAtual = produto.Valor,
+                    ValorAntigo = produto.Valor,
+                    Imagem = produto.Fotos?.FirstOrDefault(x => x.Tipo == "CAPA")?.Nome
+                })
+                .ToList();
+
+            ViewBag.UltimosProdutos = ultimosProdutos;
+
             return View();
         }
 

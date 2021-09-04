@@ -7,8 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
+    [Area("Admin")]    
     public class BoletinController : Controller
     {
         private IServiceBoletin ServiceBoletin { get; set; }

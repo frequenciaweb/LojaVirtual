@@ -10,16 +10,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class ProdutoController : Controller
+    [Area("Admin")]    
+    public class ProdutosController : Controller
     {
         private IServiceProduto ServiceProduto { get; set; }
         private IRepositorieProduto RepositorieProduto { get; set; }
         private IRepositorieCategoria RepositorieCategoria { get; set; }
         private IRepositorieFoto RepositorieFoto { get; set; }
 
-        public ProdutoController(IServiceProduto serviceProduto, IRepositorieProduto repositorieProduto, IRepositorieCategoria repositorieCategoria, IRepositorieFoto repositorieFoto)
+        public ProdutosController(IServiceProduto serviceProduto, IRepositorieProduto repositorieProduto, IRepositorieCategoria repositorieCategoria, IRepositorieFoto repositorieFoto)
         {
             ServiceProduto = serviceProduto;
             RepositorieProduto = repositorieProduto;
@@ -86,6 +87,8 @@ namespace LojaVirtual.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                Produto.Incluido = DateTime.Now;
+                Produto.Atualizado = DateTime.Now;
                 ServiceProduto.Incluir(Produto);
                 return RedirectToAction(nameof(Index));
             }
@@ -153,7 +156,8 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
+                {   
+                    Produto.Atualizado = DateTime.Now;
                     if (form.Files.Count > 0)
                     {
                         var file = form.Files[0];

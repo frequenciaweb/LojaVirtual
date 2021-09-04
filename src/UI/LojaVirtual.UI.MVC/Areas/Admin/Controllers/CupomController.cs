@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class CategoriaController : Controller
+    public class CupomController : Controller
     {
-        private IServiceCategoria ServiceCategoria { get; set; }
-        private IRepositorieCategoria RepositorieCategoria { get; set; }
+        private IServiceCupom ServiceCupom { get; set; }
+        private IRepositorieCupom RepositorieCupom { get; set; }
  
-        public CategoriaController(IServiceCategoria serviceCategoria, IRepositorieCategoria repositorieCategoria)
+        public CupomController(IServiceCupom serviceCupom, IRepositorieCupom repositorieCupom)
         {
-            ServiceCategoria = serviceCategoria;
-            RepositorieCategoria = repositorieCategoria;
+            ServiceCupom = serviceCupom;
+            RepositorieCupom = repositorieCupom;
         }
  
-        // GET: Categorias
+        // GET: Cupoms
         public IActionResult Index()
         {
-            return View(RepositorieCategoria.Obter());
+            return View(RepositorieCupom.Obter());
         }
  
         [HttpPost]
@@ -32,13 +32,13 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (string.IsNullOrEmpty(form["tipoPesquisa[]"]) || string.IsNullOrEmpty(form["valor[]"]))
             {
                 ViewBag.Erro = "Selecione os tipos de pesquisa e informe os valores";
-                return View(new List<Categoria>());
+                return View(new List<Cupom>());
             }
             
-            return View(RepositorieCategoria.Obter());
+            return View(RepositorieCupom.Obter());
         }
  
-        // GET: Categorias/Details/5
+        // GET: Cupoms/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -46,37 +46,37 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Categoria Categoria = RepositorieCategoria.Obter((Guid)id);
-            if (Categoria == null)
+            Cupom Cupom = RepositorieCupom.Obter((Guid)id);
+            if (Cupom == null)
             {
                 return NotFound();
             }
  
-            return View(Categoria);
+            return View(Cupom);
         }
 
-        // GET: Categorias/Create
+        // GET: Cupoms/Create
         public IActionResult Create()
         {
             return View();
         }
  
-        // POST: Categorias/Create
+        // POST: Cupoms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Categoria Categoria)
+        public IActionResult Create(Cupom Cupom)
         {
             if (ModelState.IsValid)
             {
-                ServiceCategoria.Incluir(Categoria);
+                ServiceCupom.Incluir(Cupom);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Categoria);
+            return View(Cupom);
         }
  
-        // GET: Categorias/Edit/5
+        // GET: Cupoms/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -84,23 +84,23 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Categoria Categoria = RepositorieCategoria.Obter((Guid)id);
+            Cupom Cupom = RepositorieCupom.Obter((Guid)id);
  
-            if (Categoria == null)
+            if (Cupom == null)
             {
                 return NotFound();
             }
-            return View(Categoria);
+            return View(Cupom);
         }
  
-        // POST: Categorias/Edit/5
+        // POST: Cupoms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, Categoria Categoria)
+        public IActionResult Edit(Guid id, Cupom Cupom)
         {
-            if (id != Categoria.ID)
+            if (id != Cupom.ID)
             {
                 return NotFound();
             }
@@ -109,11 +109,11 @@ namespace LojaVirtual.UI.MVC.Controllers
             {
                 try
                 {
-                    ServiceCategoria.Alterar(Categoria);
+                    ServiceCupom.Alterar(Cupom);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoriaExists(Categoria.ID))
+                    if (!CupomExists(Cupom.ID))
                     {
                         return NotFound();
                     }
@@ -124,10 +124,10 @@ namespace LojaVirtual.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Categoria);
+            return View(Cupom);
         }
  
-        // GET: Categorias/Delete/5
+        // GET: Cupoms/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Categoria Categoria = RepositorieCategoria.Obter((Guid)id);
-            if (Categoria == null)
+            Cupom Cupom = RepositorieCupom.Obter((Guid)id);
+            if (Cupom == null)
             {
                 return NotFound();
             }
  
-            return View(Categoria);
+            return View(Cupom);
         }
  
-        // POST: Categorias/Delete/5
+        // POST: Cupoms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            var Categoria = RepositorieCategoria.Obter(id);
-            if (Categoria == null)
+            var Cupom = RepositorieCupom.Obter(id);
+            if (Cupom == null)
             {
                 return NotFound();
             }
-            ServiceCategoria.Excluir(Categoria);
+            ServiceCupom.Excluir(Cupom);
             return RedirectToAction(nameof(Index));
         }
  
-        private bool CategoriaExists(Guid id)
+        private bool CupomExists(Guid id)
         {
-            return RepositorieCategoria.Obter(id) != null;
+            return RepositorieCupom.Obter(id) != null;
         }
     }
 }

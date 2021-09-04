@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
  
-namespace LojaVirtual.UI.MVC.Controllers
+namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class TagController : Controller
+    public class DescontoController : Controller
     {
-        private IServiceTag ServiceTag { get; set; }
-        private IRepositorieTag RepositorieTag { get; set; }
+        private IServiceDesconto ServiceDesconto { get; set; }
+        private IRepositorieDesconto RepositorieDesconto { get; set; }
  
-        public TagController(IServiceTag serviceTag, IRepositorieTag repositorieTag)
+        public DescontoController(IServiceDesconto serviceDesconto, IRepositorieDesconto repositorieDesconto)
         {
-            ServiceTag = serviceTag;
-            RepositorieTag = repositorieTag;
+            ServiceDesconto = serviceDesconto;
+            RepositorieDesconto = repositorieDesconto;
         }
  
-        // GET: Tags
+        // GET: Descontos
         public IActionResult Index()
         {
-            return View(RepositorieTag.Obter());
+            return View(RepositorieDesconto.Obter());
         }
  
         [HttpPost]
@@ -32,13 +32,13 @@ namespace LojaVirtual.UI.MVC.Controllers
             if (string.IsNullOrEmpty(form["tipoPesquisa[]"]) || string.IsNullOrEmpty(form["valor[]"]))
             {
                 ViewBag.Erro = "Selecione os tipos de pesquisa e informe os valores";
-                return View(new List<Tag>());
+                return View(new List<Desconto>());
             }
             
-            return View(RepositorieTag.Obter());
+            return View(RepositorieDesconto.Obter());
         }
  
-        // GET: Tags/Details/5
+        // GET: Descontos/Details/5
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -46,37 +46,37 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Tag Tag = RepositorieTag.Obter((Guid)id);
-            if (Tag == null)
+            Desconto Desconto = RepositorieDesconto.Obter((Guid)id);
+            if (Desconto == null)
             {
                 return NotFound();
             }
  
-            return View(Tag);
+            return View(Desconto);
         }
 
-        // GET: Tags/Create
+        // GET: Descontos/Create
         public IActionResult Create()
         {
             return View();
         }
  
-        // POST: Tags/Create
+        // POST: Descontos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Tag Tag)
+        public IActionResult Create(Desconto Desconto)
         {
             if (ModelState.IsValid)
             {
-                ServiceTag.Incluir(Tag);
+                ServiceDesconto.Incluir(Desconto);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Tag);
+            return View(Desconto);
         }
  
-        // GET: Tags/Edit/5
+        // GET: Descontos/Edit/5
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -84,23 +84,23 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Tag Tag = RepositorieTag.Obter((Guid)id);
+            Desconto Desconto = RepositorieDesconto.Obter((Guid)id);
  
-            if (Tag == null)
+            if (Desconto == null)
             {
                 return NotFound();
             }
-            return View(Tag);
+            return View(Desconto);
         }
  
-        // POST: Tags/Edit/5
+        // POST: Descontos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, Tag Tag)
+        public IActionResult Edit(Guid id, Desconto Desconto)
         {
-            if (id != Tag.ID)
+            if (id != Desconto.ID)
             {
                 return NotFound();
             }
@@ -109,11 +109,11 @@ namespace LojaVirtual.UI.MVC.Controllers
             {
                 try
                 {
-                    ServiceTag.Alterar(Tag);
+                    ServiceDesconto.Alterar(Desconto);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TagExists(Tag.ID))
+                    if (!DescontoExists(Desconto.ID))
                     {
                         return NotFound();
                     }
@@ -124,10 +124,10 @@ namespace LojaVirtual.UI.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Tag);
+            return View(Desconto);
         }
  
-        // GET: Tags/Delete/5
+        // GET: Descontos/Delete/5
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace LojaVirtual.UI.MVC.Controllers
                 return NotFound();
             }
  
-            Tag Tag = RepositorieTag.Obter((Guid)id);
-            if (Tag == null)
+            Desconto Desconto = RepositorieDesconto.Obter((Guid)id);
+            if (Desconto == null)
             {
                 return NotFound();
             }
  
-            return View(Tag);
+            return View(Desconto);
         }
  
-        // POST: Tags/Delete/5
+        // POST: Descontos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            var Tag = RepositorieTag.Obter(id);
-            if (Tag == null)
+            var Desconto = RepositorieDesconto.Obter(id);
+            if (Desconto == null)
             {
                 return NotFound();
             }
-            ServiceTag.Excluir(Tag);
+            ServiceDesconto.Excluir(Desconto);
             return RedirectToAction(nameof(Index));
         }
  
-        private bool TagExists(Guid id)
+        private bool DescontoExists(Guid id)
         {
-            return RepositorieTag.Obter(id) != null;
+            return RepositorieDesconto.Obter(id) != null;
         }
     }
 }
