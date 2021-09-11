@@ -22,6 +22,15 @@ namespace LojaVirtual.UI.MVC.Controllers
 
         public IActionResult Index()
         {
+
+                List<VMProdutosDestaque> produtosDestaque = _repositorieProdutos.ObterProdutosDestaque()
+                .Select(produto => new VMProdutosDestaque
+                {
+                    ID = produto.ID,
+                    Imagem = produto.Fotos?.FirstOrDefault(x => x.Tipo == "BANNER")?.Nome,
+                    Titulo = produto.Nome
+                }).ToList();
+
                 List<VMUltimosProdutos> ultimosProdutos = _repositorieProdutos?.ObterUltimosProdutos()?
                 .Select(produto => new VMUltimosProdutos 
                 { 
@@ -34,6 +43,7 @@ namespace LojaVirtual.UI.MVC.Controllers
                 .ToList();
 
             ViewBag.UltimosProdutos = ultimosProdutos;
+            ViewBag.ProdutosDestaque = produtosDestaque;
 
             return View();
         }
@@ -47,6 +57,16 @@ namespace LojaVirtual.UI.MVC.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
         }
     }
 }

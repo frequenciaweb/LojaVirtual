@@ -21,6 +21,8 @@ namespace LojaVirtual.Domain.Entities
 
         public int Estoque { get; set; }
 
+        public bool Destaque { get; set; }
+
         public List<ProdutoTag> Tags { get; set; } = new List<ProdutoTag>();
         public List<Carrinho> ItensCarrinho { get; set; } = new List<Carrinho>();
         public List<Comentario> Comentarios { get; set; } = new List<Comentario>();

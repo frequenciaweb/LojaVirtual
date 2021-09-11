@@ -9,12 +9,13 @@ using System.Collections.Generic;
  
 namespace LojaVirtual.UI.MVC.Areas.Admin.Controllers
 {
-    public class CategoriaController : Controller
+    [Area("Admin")]
+    public class CategoriasController : Controller
     {
         private IServiceCategoria ServiceCategoria { get; set; }
         private IRepositorieCategoria RepositorieCategoria { get; set; }
  
-        public CategoriaController(IServiceCategoria serviceCategoria, IRepositorieCategoria repositorieCategoria)
+        public CategoriasController(IServiceCategoria serviceCategoria, IRepositorieCategoria repositorieCategoria)
         {
             ServiceCategoria = serviceCategoria;
             RepositorieCategoria = repositorieCategoria;

@@ -76,7 +76,17 @@ namespace LojaVirtual.Infra.Data.EF
                     Nome = "Iphone 6",
                     Marca = "Apple",
                     Valor = 1200,
-                    Fotos = new List<Foto> { new Foto { Nome = "produto5.jpg", Caminho = "imagens", Tipo = "CAPA" } }
+                    Destaque = true,
+                    Fotos = new List<Foto> {
+                        new Foto 
+                        {
+                            Nome = "produto5.jpg", Caminho = "imagens", Tipo = "CAPA" 
+                        },
+                        new Foto
+                        {
+                            Nome = "produto5_destaque.jpg", Caminho = "imagens", Tipo = "BANNER"
+                        }
+                    } 
                 });
 
                 context.Produtos.Add(new Produto

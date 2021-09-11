@@ -38,7 +38,15 @@ namespace LojaVirtual.UI.MVC
             services.AddTransient<IRepositorieCategoria, RepositorieCategoria>();
             services.AddTransient<IServiceCategoria, ServiceCategoria>();
 
-            services.AddTransient<IRepositorieFoto, RepositorieFoto>();            
+            services.AddTransient<IRepositorieFoto, RepositorieFoto>();
+
+            services.AddAuthentication("CookieAuthentication")
+           .AddCookie("CookieAuthentication", config =>
+           {
+               config.Cookie.Name = "UserLoginCookie";
+               config.LoginPath = "/Home/Login";
+               config.AccessDeniedPath = "/Home/AccessDenied";
+           });
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
@@ -61,6 +69,7 @@ namespace LojaVirtual.UI.MVC
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

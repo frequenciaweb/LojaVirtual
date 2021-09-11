@@ -6,5 +6,6 @@ namespace LojaVirtual.Domain.Contracts.Repositories
     public interface IRepositorieProduto : IRepositorieBase<Produto>
     {
         List<Produto> ObterUltimosProdutos();
+        List<Produto> ObterProdutosDestaque();
     }
 }

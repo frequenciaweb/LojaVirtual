@@ -26,5 +26,10 @@ namespace LojaVirtual.Infra.Data.Repositories
         {
             return Context.Produtos.OrderByDescending( x => x.Atualizado).Include(x => x.Fotos).Take(6).ToList();
         }
+
+        public List<Produto> ObterProdutosDestaque()
+        {
+            return Context.Produtos.Where(x => x.Destaque).Include(x => x.Fotos).ToList();
+        }
     }
 }
