@@ -186,7 +186,6 @@ D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\bin\Debug\net5.
 D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\bin\Debug\net5.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\bin\Debug\net5.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\bin\Debug\net5.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\obj\Debug\net5.0\LojaVirtualTest.csproj.AssemblyReference.cache
 D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\obj\Debug\net5.0\LojaVirtualTest.GeneratedMSBuildEditorConfig.editorconfig
 D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\obj\Debug\net5.0\LojaVirtualTest.AssemblyInfoInputs.cache
 D:\Repositorios\Aulas\Serie\LojaVirtual\src\Test\LojaVirtualTest\obj\Debug\net5.0\LojaVirtualTest.AssemblyInfo.cs
