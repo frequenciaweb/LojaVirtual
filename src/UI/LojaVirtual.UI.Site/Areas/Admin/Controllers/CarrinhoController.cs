@@ -9,7 +9,8 @@ using System.Collections.Generic;
  
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
 {
-    public class CarrinhoController : Controller
+
+    public class CarrinhoController : BaseController
     {
         private IServiceCarrinho ServiceCarrinho { get; set; }
         private IRepositorieCarrinho RepositorieCarrinho { get; set; }

@@ -9,7 +9,7 @@ using System.Collections.Generic;
  
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
 {
-    public class TagController : Controller
+    public class TagController : BaseController
     {
         private IServiceTag ServiceTag { get; set; }
         private IRepositorieTag RepositorieTag { get; set; }

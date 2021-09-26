@@ -1,6 +1,7 @@
 using LojaVirtual.Domain.Contracts.Repositories;
 using LojaVirtual.Domain.Contracts.Services;
 using LojaVirtual.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +10,8 @@ using System.Collections.Generic;
  
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
 {
-    [Area("Admin")]    
-    public class BoletinController : Controller
+       
+    public class BoletinController : BaseController
     {
         private IServiceBoletin ServiceBoletin { get; set; }
         private IRepositorieBoletin RepositorieBoletin { get; set; }

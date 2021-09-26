@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
+      "projectUniqueName": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
       "projectName": "LojaVirtual.Domain",
-      "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
+      "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
       "packagesPath": "C:\\Users\\Paulo Roberto\\.nuget\\packages\\",
-      "outputPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\obj\\",
+      "outputPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

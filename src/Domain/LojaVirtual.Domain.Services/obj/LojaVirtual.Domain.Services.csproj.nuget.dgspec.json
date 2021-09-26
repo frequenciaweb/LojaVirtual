@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj": {}
+    "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj": {}
   },
   "projects": {
-    "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj": {
+    "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj",
+        "projectUniqueName": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj",
         "projectName": "LojaVirtual.Domain.Services",
-        "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj",
+        "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\LojaVirtual.Domain.Services.csproj",
         "packagesPath": "C:\\Users\\Paulo Roberto\\.nuget\\packages\\",
-        "outputPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\obj\\",
+        "outputPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,11 +34,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj": {
-                "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj"
+              "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj": {
+                "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj"
               },
-              "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj": {
-                "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj"
+              "D:\\Projetos\\Github\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj": {
+                "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj"
               }
             }
           }
@@ -71,14 +71,14 @@
         }
       }
     },
-    "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj": {
+    "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
+        "projectUniqueName": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
         "projectName": "LojaVirtual.Domain",
-        "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
+        "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj",
         "packagesPath": "C:\\Users\\Paulo Roberto\\.nuget\\packages\\",
-        "outputPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\obj\\",
+        "outputPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -131,14 +131,14 @@
         }
       }
     },
-    "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj": {
+    "D:\\Projetos\\Github\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj",
+        "projectUniqueName": "D:\\Projetos\\Github\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj",
         "projectName": "LojaVirtual.Infra.Data",
-        "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj",
+        "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\LojaVirtual.Infra.Data.csproj",
         "packagesPath": "C:\\Users\\Paulo Roberto\\.nuget\\packages\\",
-        "outputPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\obj\\",
+        "outputPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Infra\\LojaVirtual.Infra.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -161,8 +161,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj": {
-                "projectPath": "D:\\Repositorios\\Aulas\\Serie\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj"
+              "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj": {
+                "projectPath": "D:\\Projetos\\Github\\LojaVirtual\\src\\Domain\\LojaVirtual.Domain\\LojaVirtual.Domain.csproj"
               }
             }
           }
@@ -178,6 +178,12 @@
           "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.8, )"
             },

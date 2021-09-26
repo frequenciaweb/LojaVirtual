@@ -22,7 +22,19 @@ namespace LojaVirtual.Infra.Data.EF
                 context.Categorias.Add(categoria);
             }
 
-
+            if (context.Usuarios.Count() == 0)
+            {
+                context.Usuarios.Add(new Usuario
+                {
+                    ID = Guid.NewGuid(),
+                    Ativo = true,
+                    Cadastro = DateTime.Now,
+                    Email = "admin@ustora.com.br",
+                    Perfil = Domain.Enums.EnumPerfil.Administrador,
+                    Senha = "123456",
+                    Nome = "ADMINISTRADOR"
+                });
+            }
 
             if (context.Produtos.Count() == 0)
             {

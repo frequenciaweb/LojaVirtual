@@ -9,7 +9,7 @@ using System.Collections.Generic;
  
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : BaseController
     {
         private IServiceUsuario ServiceUsuario { get; set; }
         private IRepositorieUsuario RepositorieUsuario { get; set; }

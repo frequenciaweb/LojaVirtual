@@ -1,1 +1,30 @@
-﻿<h1>Tela de Login</h1>
+﻿@model LojaVirtual.UI.Site.Models.MVLogin
+
+<link href="~/css/login.css" rel="stylesheet" />
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Loja Ustora</h2>
+        <p>Acesse a loja virtual.</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form method="post" asp-controller="Home" asp-action="Login">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input asp-for="Email" class="form-control" placeholder="User Name">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input asp-for="Senha" type="password" class="form-control" placeholder="Password">
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-black">Login</button>
+                <a asp-controller="Home" asp-action="Register" class="btn btn-secondary">Register</a>
+            </form>
+        </div>
+    </div>
+</div>

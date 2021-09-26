@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
-{
-    [Area("Admin")]
-    public class ProdutosController : Controller
+{    
+    public class ProdutosController : BaseController
     {
         private IServiceProduto ServiceProduto { get; set; }
         private IRepositorieProduto RepositorieProduto { get; set; }
@@ -162,20 +162,41 @@ namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
                     if (form.Files.Count > 0)
                     {
                         var file = form.Files[0];
-                        string nome = DateTime.Now.ToString("yyyy-dd-MM-HH-mm-ss") + ".jpg";
-                        string caminho = System.Environment.CurrentDirectory + @"\wwwroot\imagens\";
-                        string tipo = form["tipo"];
 
-                        if (!Directory.Exists(caminho))
+                        if (file.FileName.Contains(".jpg") || (file.FileName.Contains(".png")))
                         {
-                            Directory.CreateDirectory(caminho);
+
+                            string nome = DateTime.Now.ToString("yyyy-dd-MM-HH-mm-ss") + ".jpg";
+                            string caminho = System.Environment.CurrentDirectory + @"\wwwroot\imagens\";
+                            string tipo = form["tipo"];
+
+                            using (var image = new Bitmap(file.OpenReadStream()))
+                            {
+                                if (((image.Width >= 1366)) && (image.Width <= 1920) &&
+                                    (image.Height != 340))
+                                {
+                                    if (!Directory.Exists(caminho))
+                                    {
+                                        Directory.CreateDirectory(caminho);
+                                    }
+
+                                    using (FileStream saida = new FileStream(caminho + nome, FileMode.Create))
+                                    {
+                                        file.OpenReadStream().CopyTo(saida);
+                                    }
+                                    ServiceProduto.IncluirImagem(new Foto { Tipo = tipo, Caminho = caminho, Nome = nome, ProdutoID = Produto.ID });
+                                }
+                                else
+                                {
+                                    ModelState.AddModelError("", "Tamanho inválido para imagem");
+                                    return View(Produto);
+                                }
+                            }                              
                         }
 
-                        using (FileStream saida = new FileStream(caminho + nome, FileMode.Create))
-                        {
-                            file.OpenReadStream().CopyTo(saida);
-                        }
-                        ServiceProduto.IncluirImagem(new Foto { Tipo = tipo, Caminho = caminho, Nome = nome, ProdutoID = Produto.ID });
+                        ModelState.AddModelError("", "Formato inválido para imagem");
+                        return View(Produto);
+
                     }
 
                     ServiceProduto.Alterar(Produto);

@@ -9,7 +9,7 @@ using System.Collections.Generic;
  
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
 {
-    public class CupomController : Controller
+    public class CupomController : BaseController
     {
         private IServiceCupom ServiceCupom { get; set; }
         private IRepositorieCupom RepositorieCupom { get; set; }

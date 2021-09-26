@@ -8,9 +8,8 @@ using System;
 using System.Collections.Generic;
  
 namespace LojaVirtual.UI.Site.Areas.Admin.Controllers
-{
-    [Area("Admin")]
-    public class CategoriasController : Controller
+{    
+    public class CategoriasController : BaseController
     {
         private IServiceCategoria ServiceCategoria { get; set; }
         private IRepositorieCategoria RepositorieCategoria { get; set; }

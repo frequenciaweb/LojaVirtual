@@ -34,6 +34,7 @@ namespace LojaVirtual.UI.Site
             services.AddTransient<IServiceCategoria, ServiceCategoria>();
 
             services.AddTransient<IRepositorieFoto, RepositorieFoto>();
+            services.AddTransient<IRepositorieUsuario, RepositorieUsuario>();
 
             services.AddAuthentication("CookieAuthentication")
            .AddCookie("CookieAuthentication", config =>
